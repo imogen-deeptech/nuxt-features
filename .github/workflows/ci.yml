@@ -8,22 +8,24 @@ on:
       - main
 jobs:
   lint:
+    name: Lint module
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+      uses: actions/checkout@v4
       - name: Enable corepack
-        run: corepack enable
+      run: corepack enable
       - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
       - name: Install dependencies
-        run: npx nypm@latest i
+        run: npm ci --registry=https://registry.npmjs.org
       - name: Lint
         run: npm run lint
 
   test:
+    name: Test module
     if: false
     runs-on: ubuntu-latest
 
@@ -44,6 +46,7 @@ jobs:
         run: npm run test
 
   publish:
+    name: Publish module to Github Packages
     runs-on: ubuntu-latest
     needs: ["lint"]
     permissions:
