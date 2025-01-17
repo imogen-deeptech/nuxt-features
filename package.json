@@ -4,7 +4,7 @@
   "description": "Group nuxt features together",
   "repository": {
     "type": "git",
-    "url": "https://github.com/imogen-deeptech/nuxt-features"
+    "url": "git+https://github.com/imogen-deeptech/nuxt-features.git"
   },
   "license": "MIT",
   "type": "module",
