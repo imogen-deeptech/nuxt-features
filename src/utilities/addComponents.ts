@@ -1,7 +1,7 @@
 import * as fs from "node:fs";
 
-import { addComponentsDir } from "nuxt/kit";
-import type { Area } from "../types/area";
+import { addComponentsDir } from "@nuxt/kit";
+import type { Area } from "../types/area.ts";
 
 export const addComponents = (area: Area) => {
 	const componentsPath = area.getDirectory("components");

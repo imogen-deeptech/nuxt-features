@@ -1,9 +1,9 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 
-import { extendPages } from "nuxt/kit";
-import type { NuxtPage } from "nuxt/schema";
-import type { Area } from "../types/area";
+import { extendPages } from "@nuxt/kit";
+import type { NuxtPage } from "@nuxt/schema";
+import type { Area } from "../types/area.ts";
 
 const getPagePath = (pageName: string, areaName: string, areaSubDirectory: string, indexAreaName: string) => {
 	const joinedAreaName = areaSubDirectory.length > 0 ? `${areaName}/${areaSubDirectory}` : areaName;

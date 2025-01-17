@@ -1,4 +1,4 @@
-import { addPlugin, createResolver, defineNuxtModule } from "@nuxt/kit";
+import { defineNuxtModule } from "@nuxt/kit";
 import { addComponents } from "./utilities/addComponents.ts";
 import { addEndpoints } from "./utilities/addEndpoints.ts";
 import { addPages } from "./utilities/addPages.ts";
@@ -23,8 +23,6 @@ export default defineNuxtModule<ModuleOptions>({
 		autoImportDirectories: [],
 	},
 	setup(options, nuxt) {
-		const resolver = createResolver(import.meta.url);
-
 		const rootDirectory = getRootDirectory(nuxt, options.rootDirectory);
 		const areas = getAreas(rootDirectory);
 
@@ -34,6 +32,5 @@ export default defineNuxtModule<ModuleOptions>({
 			addPages(area, options.indexFeature);
 			addTypes(area, options.autoImportDirectories);
 		}
-		addPlugin(resolver.resolve("./runtime/plugin"));
 	},
 });

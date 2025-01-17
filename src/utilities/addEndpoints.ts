@@ -1,9 +1,9 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 
-import { addImportsSources } from "nuxt/kit";
+import { addImportsSources } from "@nuxt/kit";
 import { camelize, capitalize } from "vue";
-import type { Area } from "../types/area";
+import type { Area } from "../types/area.ts";
 
 export const addEndpoints = (area: Area) => {
 	const pascalizedAreaName = capitalize(camelize(area.name));
