@@ -2,6 +2,7 @@ import { defineNuxtModule } from "@nuxt/kit";
 import { addComponents } from "./utilities/addComponents.ts";
 import { addEndpoints } from "./utilities/addEndpoints.ts";
 import { addPages } from "./utilities/addPages.ts";
+import { addPathAlias } from "./utilities/addPathAlias.ts";
 import { addTypes } from "./utilities/addTypes.ts";
 import { getAreas } from "./utilities/getAreas.ts";
 import { getRootDirectory } from "./utilities/getRootDirectory.ts";
@@ -27,6 +28,7 @@ export default defineNuxtModule<ModuleOptions>({
 		const areas = getAreas(rootDirectory);
 
 		for (const area of areas) {
+			addPathAlias(area, nuxt);
 			addEndpoints(area);
 			addComponents(area);
 			addPages(area, options.indexFeature);
